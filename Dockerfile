@@ -42,3 +42,5 @@ RUN source $NVM_DIR/nvm.sh \
   && nvm install $NODE_VERSION \
   && nvm alias default $NODE_VERSION \
   && nvm use default
+
+COPY check_versions.sh /usr/local/bin/check_versions.sh

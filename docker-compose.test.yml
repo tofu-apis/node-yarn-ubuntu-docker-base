@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+  # Abbreviation for "system under test"
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: '/usr/local/bin/check_versions.sh'
