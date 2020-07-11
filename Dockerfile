@@ -32,18 +32,7 @@ ENV NODE_VERSION 12.18.0
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
-ARG USER_NAME=node
-ARG DATA_DIR=/data
-
-# Create the non-root user
-RUN useradd -ms /bin/bash $USER_NAME
-
 RUN mkdir $NVM_DIR
-RUN chown -R $USER_NAME:$nogroup $NVM_DIR
-RUN mkdir $DATA_DIR
-RUN chown -R $USER_NAME:nogroup $DATA_DIR
-
-USER $USER_NAME
 
 # install nvm
 RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
