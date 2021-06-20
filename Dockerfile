@@ -27,6 +27,7 @@ RUN apt-get -qq update \
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # nvm environment variables
+ENV YARN_VERSION 1.22.5
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 12.18.0
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
@@ -42,5 +43,8 @@ RUN source $NVM_DIR/nvm.sh \
   && nvm install $NODE_VERSION \
   && nvm alias default $NODE_VERSION \
   && nvm use default
+
+RUN npm install --global yarn \
+  && yarn set version $YARN_VERSION
 
 COPY check_versions.sh /usr/local/bin/check_versions.sh
