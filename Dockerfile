@@ -29,7 +29,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # nvm environment variables
 ENV YARN_VERSION 1.22.10
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 12.18.0
+ENV NODE_VERSION 14.15.4
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
