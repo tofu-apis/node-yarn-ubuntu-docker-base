@@ -12,8 +12,6 @@ FROM ubuntu:18.04
 # Adding non-interactive for debian front-end to hide dialog questions during build.
 # Args only live during the build so they do not persist to the final image.
 ARG DEBIAN_FRONTEND=noninteractive
-ARG YARN_VERSION
-ARG NODE_VERSION
 
 RUN apt-get -qq update \
     && apt-get install -qq -y \
@@ -29,9 +27,9 @@ RUN apt-get -qq update \
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # nvm environment variables
-ENV YARN_VERSION=$YARN_VERSION
-ENV NODE_VERSION=$NODE_VERSION
+ENV YARN_VERSION 1.22.10
 ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 16.19.1
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
